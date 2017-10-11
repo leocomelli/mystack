@@ -9,8 +9,7 @@ public class MyStack extends Stack<Integer> {
 	private final Stack<Integer> minValues = new Stack<>();
 
 	public Integer min() {
-		final int minValue = minValues.pop();
-		return minValues.push(minValue);
+		return minValues.peek();
 	}
 
 	@Override
@@ -27,8 +26,7 @@ public class MyStack extends Stack<Integer> {
 			minValues.push(item);
 		} else {
 			super.push(item);
-			int minValue = minValues.pop();
-			minValues.push(minValue);
+			int minValue = minValues.peek();
 			if (item <= minValue) {
 				minValues.push(item);
 			}
